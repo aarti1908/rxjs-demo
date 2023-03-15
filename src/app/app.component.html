@@ -1,0 +1,23 @@
+<div class="gameOptions">
+    <button class="btn" (click)="onStart()" [ngClass]="{'hide' : gameStatus != status.NOT_STARTED }">Start Game</button>
+</div>
+<div class="mainContent" *ngIf="gameStatus === status.STARTED">
+    <div class="item" 
+    *ngFor="let item of items; let i = index" 
+    (click)="onItemClick(i)"
+    [ngClass]="{'hide' : item.clicked }"
+    [ngStyle]="{
+        'background-image' :'url(./assets/svg/' + item.name + '.svg)',
+        'background-repeat': 'no-repeat',
+        'background-size': 'cover',
+        'position':'absolute',
+        'left': item.startX + 'px',
+        'top': item.startY  + 'px'
+        }"
+    >
+    </div>
+</div>
+<div class="score" *ngIf="gameStatus === status.OVER">
+    <h2>Game Over</h2>
+    <p>You have scored {{ score }} out of {{ items.length }}</p>
+</div>
