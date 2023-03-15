@@ -1,3 +1,4 @@
+<div class="cursor" [ngStyle]="{'left': this.cursorPosition.left + 'px', 'top': this.cursorPosition.top  + 'px'}"></div>
 <div class="gameOptions">
     <button class="btn" (click)="onStart()" [ngClass]="{'hide' : gameStatus != status.NOT_STARTED }">Start Game</button>
 </div>

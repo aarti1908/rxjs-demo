@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   onBombClickAudio = new Audio('assets/audios/game-over.mp3');
   score: number = 0;
   
-  circlePosition = {
+  cursorPosition = {
     left: 0,
     top: 0
   }
@@ -35,9 +35,9 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     fromEvent(document, 'mousemove').subscribe((value:any) => {
-      this.circlePosition = {
-        left : value.clientX ? value.clientX - 25  : 0,
-        top : value.clientY ? value.clientY - 25 : 0
+      this.cursorPosition = {
+        left : value.clientX ? value.clientX + 10 : 0,
+        top : value.clientY ? value.clientY  : 0
       }
     })
   }
